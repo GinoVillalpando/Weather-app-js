@@ -37,11 +37,11 @@ body {
 
 .degree-section span {
     margin: 10px;
-    font-size: 10px;
+    font-size: 2rem;
 }
 
 .degree-section h2 {
-    font-size: 40px
+    font-size: 5rem;
 }
 
 .location-timezone {
@@ -50,7 +50,7 @@ body {
 
 .icon {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
     align-items: center;
 }
