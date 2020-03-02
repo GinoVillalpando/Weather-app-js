@@ -35,14 +35,14 @@ window.addEventListener('load', () => {
                 tempratureDescription.textContent = summary;
                 locationTimezone.textContent = timezone.replace("America/", "");
 
+                //set Icon
+                setIcons(icon, document.querySelector(".icon"));
+
                 //formula for celsius
                 let celsius = (temperature - 32) * (5 / 9);
 
                 //formula for fahrenheit
                 let fahrenheit = (celsius * 9 / 5) + 32;
-
-                //set Icon
-                setIcons(icon, document.querySelector(".icon"));
 
                 //change temperature to celsius from fahrenheit
                 temperatureSection.addEventListener('click', () => {
