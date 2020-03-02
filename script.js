@@ -15,6 +15,8 @@ window.addEventListener('load', () => {
 
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
+            
+            //get ready to use the coordinates for the api data
             longitude = position.coords.longitude;
             latitude = position.coords.latitude;
 
@@ -26,7 +28,11 @@ window.addEventListener('load', () => {
                 return response.json();
             })
             .then(data => {
+
+                //to see data that returned with the api
                 console.log(data)
+
+                //declare the variables from the api data
                 const { temperature, summary, icon } = data.currently;
                 const { timezone } = data;
 
