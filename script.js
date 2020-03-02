@@ -1,9 +1,13 @@
 window.addEventListener('load', () => {
+
+    //declare the variables that will be using geolocation
     let longitude;
     let latitude;
-    let tempratureDescription = document.querySelector(".temperature-description");
-    let tempratureDegree = document.querySelector(".degree");
-    let locationTimezone = document.querySelector(".location-timezone");
+
+    //declare variables that will be manipulating the DOM by class querySelectors
+    const tempratureDescription = document.querySelector(".temperature-description");
+    const tempratureDegree = document.querySelector(".degree");
+    const locationTimezone = document.querySelector(".location-timezone");
 
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
@@ -33,7 +37,7 @@ window.addEventListener('load', () => {
 
         });
 
-        //function that takes care of replacing icon with currently data and replaces the - with _ 
+        //function that takes care of replacing icon with currently data and replaces the - with _ and use toUpperCase method to match Skycons library naming conventions
         function setIcons(icon, iconId){
             const skycons = new Skycons({color: "white"});
             const currentIcon = icon.replace(/-/g, "_").toUpperCase();

@@ -10,7 +10,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(rgb( 47, 150, 163 ), rgb( 48, 62, 143 ));
+    background: linear-gradient( rgb( 47, 150, 163 ), rgb(255,20,147) );
     font-family: sans-serif;
     color: #fff;
     overflow-x: hidden;
@@ -21,8 +21,8 @@ body {
     height: 30vh;
     width: 50%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .temperature{ 
@@ -44,7 +44,9 @@ body {
     font-size: 40px
 }
 
-
+.location-timezone {
+    margin-left: 50%;
+}
 
 .icon {
     display: flex;
