@@ -19,16 +19,29 @@ window.addEventListener('load', () => {
             })
             .then(data => {
                 console.log(data)
-                const { temperature, summary } = data.currently;
+                const { temperature, summary, icon } = data.currently;
                 const { timezone } = data;
 
                 //Set DOM elements from the API
                 tempratureDegree.textContent = temperature;
                 tempratureDescription.textContent = summary;
                 locationTimezone.textContent = timezone;
+
+                //set Icon
+                setIcons(icon, document.querySelector(".icon"));
             });
 
         });
+
+        //function that takes care of replacing icon with currently data and replaces the - with _ 
+        function setIcons(icon, iconId){
+            const skycons = new Skycons({color: "white"});
+            const currentIcon = icon.replace(/-/g, "_").toUpperCase();
+
+            //starts playing the skycon and sets the current icon replaced by the currently data 
+            skycons.play();
+            return skycons.set(iconId, Skycons[currentIcon]);
+        }
 
     } else {
         h1.textContent = "Your browser may not support this feature."
