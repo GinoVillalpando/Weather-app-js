@@ -8,6 +8,10 @@ window.addEventListener('load', () => {
     const tempratureDescription = document.querySelector(".temperature-description");
     const tempratureDegree = document.querySelector(".degree");
     const locationTimezone = document.querySelector(".location-timezone");
+    let temperatureSection = document.querySelector(".temperature")
+    let temperatureDegree = document.querySelector(".degree")
+    const temperatureScale = document.querySelector(".temperature span")
+
 
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
@@ -27,12 +31,29 @@ window.addEventListener('load', () => {
                 const { timezone } = data;
 
                 //Set DOM elements from the API
-                tempratureDegree.textContent = temperature;
+                tempratureDegree.textContent = Math.floor(temperature);
                 tempratureDescription.textContent = summary;
                 locationTimezone.textContent = timezone.replace("America/", "");
 
+                //formula for celsius
+                let celsius = (temperature - 32) * (5 / 9);
+
+                //formula for fahrenheit
+                let fahrenheit = (celsius * 9 / 5) + 32;
+
                 //set Icon
                 setIcons(icon, document.querySelector(".icon"));
+
+                //change temperature to celsius from fahrenheit
+                temperatureSection.addEventListener('click', () => {
+                    if(temperatureScale.textContent === "F"){
+                        temperatureScale.textContent = "C";
+                        temperatureDegree.textContent = Math.floor(celsius);
+                    } else {
+                        temperatureScale.textContent = "F";
+                        tempratureDegree.textContent = Math.floor(fahrenheit);
+                    }
+                })
             });
 
         });
