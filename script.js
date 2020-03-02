@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
                 //Set DOM elements from the API
                 tempratureDegree.textContent = temperature;
                 tempratureDescription.textContent = summary;
-                locationTimezone.textContent = timezone;
+                locationTimezone.textContent = timezone.replace("America/", "");
 
                 //set Icon
                 setIcons(icon, document.querySelector(".icon"));
