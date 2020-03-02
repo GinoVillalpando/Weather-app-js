@@ -31,4 +31,14 @@ body {
 .degree-section {
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
+
+.degree-section span {
+    margin: 10px;
+    font-size: 10px;
+}
+
+.degree-section h2 {
+    font-size: 40px
 }
